@@ -56,9 +56,9 @@ export function hook_java_method(class_method: string, implementation: (method: 
             method = method_dispatcher.overload(...overload);
         } else {
             if (method_dispatcher.overloads.length > 1) {
-                console.log('Multiple overloads: ');
+                console.log('\x1B[31mMultiple overloads: \x1B[0m');
                 for (const overload of method_dispatcher.overloads) {
-                    console.log('\t[\'' + overload.argumentTypes.map(t => t.className).join('\', \'') + '\']');
+                    console.log('\t\x1B[31m[\'' + overload.argumentTypes.map(t => t.className).join('\', \'') + '\']\x1B[0m');
                 }
             }
             method = method_dispatcher.overloads[0];
