@@ -1,0 +1,19 @@
+{
+  "name": "frida-scripts",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "author": "X5tar",
+  "license": "MIT",
+  "scripts": {
+    "build": "frida-compile src/index.ts -o _index.js -c",
+    "watch": "frida-compile src/index.ts -o _index.js -w",
+    "clean": "rm _index.js"
+  },
+  "dependencies": {
+    "frida-compile": "^15.1.0"
+  },
+  "devDependencies": {
+    "@types/frida-gum": "^18.1.0",
+    "@types/node": "^18.0.6"
+  }
+}
