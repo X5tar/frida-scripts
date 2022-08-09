@@ -16,7 +16,7 @@ hook_java_method('org.example.package.class.method', function (method: Java.Meth
 });
 
 // For iOS apps
-import { dump_objc_method, hook_objc_method } from "./methods/objc.js";
+import { dump_objc_method, hook_objc_method, replace_objc_method } from "./methods/objc.js";
 dump_objc_method('-[class method]', {
     args: [2],  // 0 for receiver (object), 1 for SEL (method)
     ret: true,
@@ -30,3 +30,6 @@ hook_objc_method('-[class method]', {
         // Your code here
     }
 })
+replace_objc_method('-[class method]', new NativeCallback(function (args) {
+    // Your code here
+}, 'void', ['pointer', 'pointer']))

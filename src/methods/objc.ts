@@ -36,6 +36,11 @@ export function dump_objc_method(name: string, config: DumpConfig = {}) {
 }
 
 export function hook_objc_method(name: string, callbacks: InvocationListenerCallbacks | InstructionProbeCallback) {
-    let method = parse_objc_method(name);
+    const method = parse_objc_method(name);
     Interceptor.attach(method.implementation, callbacks);
+}
+
+export function replace_objc_method(name: string, callback: NativePointerValue) {
+    const method = parse_objc_method(name);
+    Interceptor.replace(method.implementation, callback);
 }

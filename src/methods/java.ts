@@ -50,7 +50,7 @@ export function dump_java_method(class_method: string, config: DumpConfig) {
 
 export function hook_java_method(class_method: string, implementation: (method: Java.Method) => Java.MethodImplementation, overload?: string[]) {
     Java.perform(function () {
-        let method_dispatcher = parse_java_method(class_method).method;
+        const method_dispatcher = parse_java_method(class_method).method;
         let method: Java.Method;
         if (overload) {
             method = method_dispatcher.overload(...overload);

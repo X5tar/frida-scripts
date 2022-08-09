@@ -41,4 +41,6 @@ Change the implementation of a Java method or intercept a ObjC method.
 
 For Android apps, a hook is to **change the impementation** of a method. You should call `method.call(this, ...args)` to execute the original implementation, get the return value and use it, or you can just generate a return value yourself without calling the original method.
 
-For iOS apps, a hook is to **intercept entering and leaving** of a method. You can use or change the arguments in the `onEnter` callback funtion and the return value in the `onLeave` callback funtion. The original implementation will always be executed.
+~~For iOS apps, a hook is to **intercept entering and leaving** of a method. You can use or change the arguments in the `onEnter` callback funtion and the return value in the `onLeave` callback funtion. The original implementation will always be executed.~~
+
+In fact, iOS hook can also **change the implementation** by calling `Interceptor.replace`.
