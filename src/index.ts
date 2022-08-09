@@ -1,5 +1,5 @@
 // For Android apps
-import { dump_java_method, hook_java_method } from "./methods/java.js";
+import { dump_java_method, hook_java_method } from "./android/method.js";
 dump_java_method('org.example.package.class.method', {
     args: [0],
     ret: true,
@@ -16,7 +16,7 @@ hook_java_method('org.example.package.class.method', function (method: Java.Meth
 });
 
 // For iOS apps
-import { dump_objc_method, hook_objc_method, replace_objc_method } from "./methods/objc.js";
+import { dump_objc_method, hook_objc_method, replace_objc_method } from "./ios/method.js";
 dump_objc_method('-[class method]', {
     args: [2],  // 0 for receiver (object), 1 for SEL (method)
     ret: true,
